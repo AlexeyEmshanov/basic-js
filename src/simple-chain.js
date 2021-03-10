@@ -19,8 +19,8 @@ const chainMaker = {
   
   removeLink(position) {
     if (isNaN(position) || (position>= this.getLength(this.resChain)) || (position % 1 !== 0) || (position <= 0)) {
-      throw new Error ('Invalid position input')
       this.resChain = []
+      throw new Error ('Invalid position input')
     } else {
       this.resChain.splice(position - 1 , 1)
       return chainMaker  
@@ -34,8 +34,9 @@ const chainMaker = {
   },
   
   finishChain() {
-    return this.resChain.join('').substring(0, this.resChain.join('').length - 2)
+    const result = this.resChain.join('').substring(0, this.resChain.join('').length - 2)
     this.resChain = []
+    return result
   }
 };
 
